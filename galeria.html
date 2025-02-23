@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="galeria_style.css">
+</head>
+
+<body>
+    <section class="offcanvas offcanvas-start" id="sidebar">
+        <section class="offcanvas-header">
+            <h1 class="offcanvas-title">MENU</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </section>
+        <section class="offcanvas-body">
+            <p><a href="index.html">Strona główna</a></p>
+            <p><a href="https://www.youtube.com/watch?v=MWilsN_5Y-s" target="_blank">Kontakt - Jagoda Binek</a></p>
+            <p><a href="https://www.youtube.com/watch?v=8J1stp9AbOk" target="_blank">Kontakt - Zuzanna Rzewniś</a></p>
+        </section>
+    </section>
+    <header class="container-fluid p-0 m-0 d-flex align-items-center">
+        <button id="menu_button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+            <img src="placeholder0.jpg" width="120" height="120" id="menu">
+        </button>
+        <h1 class="me-3" id="title">GALERIA</h1>
+    </header>
+    <main>
+        <section class="container-fluid d-flex flex-row justify-content-center align-items-center m-0 h-100">
+            <button class="navbutton p-0 m-1 rounded-3 backbutton" onclick="back()">
+                <img src="placeholder1.jpg" class="rounded-3">
+            </button>
+            <section class="card mini_card p-0 m-1 mobile_kaput">
+                <button class="mini_card_button p-0 m-0 rounded-3" data-bs-toggle="modal" data-bs-target="#fullscreen" onclick="readyFullscreen(0)">
+                    <img src="placeholder0_thumb.jpg" class="rounded-3" id="card0">
+                </button>
+            </section>
+            <section class="card main_card p-0 m-1 mobile_kaput">
+                <img src="placeholder0_thumb.jpg" class="card-img-top" id="card1">
+                <button class="title h-100 rounded-bottom-3 p-0 m-0" data-bs-toggle="modal"
+                    data-bs-target="#fullscreen" onclick="readyFullscreen(1)">
+                    <section class="card-body">
+                        <h4 class="card-title" id="card_desc0">LOS CHCE ZE MNA GRAC W POKERA</h4>
+                    </section>
+                </button>
+
+            </section>
+
+            <section class="card main_card p-0 m-1">
+                <img src="placeholder0_thumb.jpg" class="card-img-top" id="card2">
+                <button class="title h-100 rounded-bottom-3" data-bs-toggle="modal" data-bs-target="#fullscreen" onclick="readyFullscreen(2)">
+                    <section class="card-body">
+                        <h4 class="card-title" id="card_desc1">RAZ MI DAJE RAZ ZABIERA</h4>
+                    </section>
+                </button>
+            </section>
+                    <section class="card mini_card p-0 m-1 mobile_kaput">
+                <button class="mini_card_button p-0 m-0 rounded-3" data-bs-toggle="modal" data-bs-target="#fullscreen" onclick="readyFullscreen(3)">
+                    <img src="placeholder0_thumb.jpg" class=" rounded-3" id="card3">
+                </button>
+            </section>
+            <button class="navbutton p-0 m-1 rounded-3 forwardbutton" onclick="forward()">
+                <img src="placeholder1.jpg" class="rounded-3">
+            </button>
+        </section>
+    </main>
+    <footer class="d-flex align-items-center">
+        <p class="mx-auto">Copyright by Rzewniś-Binek sp. z.o.o</p>
+    </footer>
+    <section class="modal fade" id="fullscreen">
+        <section class="modal-dialog modal-fullscreen">
+            <section class="modal-content">
+                <section class="modal-header fullscreen_gallery_head">
+                    <h4 class="modal-title" id="work_title">Tytuł pracy</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </section>
+                <section class="modal-body container-fluid justify-content-center align-items-center m-0 h-100" style="background-color: #080705;">
+                    <button class="navbutton p-0 m-1 rounded-3 backbutton mobile_kaput" onclick="fullscreenBack()">
+                        <img src="placeholder1.jpg" class="rounded-3">
+                    </button>
+                    <img src="placeholder3.jpg" class="rounded-3 m-2" id="fullscreen_img">
+
+                    <section class="justify-content-center align-items-center desktop_kaput" style="background-color: #080705;">
+                        <button class="navbutton p-0 m-1 rounded-3 backbutton desktop_kaput" onclick="fullscreenBack()">
+                            <img src="placeholder1.jpg" class="rounded-3">
+                        </button>
+                        <button class="navbutton p-0 m-1 rounded-3 forwardbutton desktop_kaput" onclick="fullscreenForward()">
+                            <img src="placeholder1.jpg" class="rounded-3">
+                        </button>
+                    </section> 
+
+                    <button class="navbutton p-0 m-1 rounded-3 forwardbutton mobile_kaput" onclick="fullscreenForward()">
+                        <img src="placeholder1.jpg" class="rounded-3">
+                    </button>
+                </section>
+            </section>
+        </section>
+    </section>
+    <script>
+       var fullscreen_counter;
+       var img_arr = [0, 1, 2, 3];
+       var img_full_arr = [0, 1, 2, 3];
+       var file_arr = ["placeholder0_thumb.jpg", "placeholder1_thumb.jpg", "placeholder2_thumb.jpg", "placeholder3_thumb.jpg", "placeholder4_thumb.jpg", "placeholder5_thumb.jpg", "placeholder6_thumb.jpg", "placeholder7_thumb.jpg"];
+       var file_full_arr = ["placeholder0.jpg", "placeholder1.jpg", "placeholder2.jpg", "placeholder3.jpg", "placeholder4.jpg", "placeholder5.jpg", "placeholder6.jpg", "placeholder7.jpg"];
+       var file_desc_arr = ["PARAPAPARAPARA","OOO OOO AAA", "LOS CHCE ZE MNA GRAC W POKERA", "RAZ MI DAJE RAZ ZABIERA", "JA ZA SWOIM SZCZESCIEM BIEGNE W SWIAT", "CUDA PRZECIEZ SIE ZDARZAJA", "I MARZENIA SIE SPELNIAJA", "LOS PRZEKORNY ZNOWU MILOSC DA"];
+        function back() {
+            for (let i = 0;  i<img_arr.length; i++) {
+                if (img_arr[i] == 0) {
+                    img_arr[i] = 7;
+                } else {
+                    img_arr[i]--;
+                }
+            }
+            document.getElementById('card0').src = file_arr[img_arr[0]];
+            document.getElementById('card1').src = file_arr[img_arr[1]];
+            document.getElementById('card2').src = file_arr[img_arr[2]];
+            document.getElementById('card3').src = file_arr[img_arr[3]];
+            document.getElementById('card_desc0').innerText = file_desc_arr[img_arr[1]];
+            document.getElementById('card_desc1').innerText = file_desc_arr[img_arr[2]];
+        };
+        function forward() {
+            for (let i = 0;  i<img_arr.length; i++) {
+                if (img_arr[i] == 7) {
+                    img_arr[i] = 0;
+                } else {
+                    img_arr[i]++;
+                }
+            }
+            document.getElementById('card0').src = file_arr[img_arr[0]];
+            document.getElementById('card1').src = file_arr[img_arr[1]];
+            document.getElementById('card2').src = file_arr[img_arr[2]];
+            document.getElementById('card3').src = file_arr[img_arr[3]];
+            document.getElementById('card_desc0').innerText = file_desc_arr[img_arr[1]];
+            document.getElementById('card_desc1').innerText = file_desc_arr[img_arr[2]];
+        }
+            function readyFullscreen(card_num){
+                for (let i = 0; i < img_arr.length; i++) {
+                    img_full_arr[i] = img_arr[i];                    
+                };
+                fullscreen_counter = card_num;
+                switch (card_num) {
+                    case 0:
+                        document.getElementById("fullscreen_img").src = file_full_arr[img_arr[0]];
+                        document.getElementById('work_title').innerText = file_desc_arr[img_arr[0]];
+                        break;
+                    case 1:
+                        document.getElementById("fullscreen_img").src = file_full_arr[img_arr[1]];
+                        document.getElementById('work_title').innerText = file_desc_arr[img_arr[1]];
+                        break;
+                    case 2:
+                        document.getElementById("fullscreen_img").src = file_full_arr[img_arr[2]];
+                        document.getElementById('work_title').innerText = file_desc_arr[img_arr[2]];
+                        break;
+                    case 3:
+                        document.getElementById("fullscreen_img").src = file_full_arr[img_arr[3]];
+                        document.getElementById('work_title').innerText = file_desc_arr[img_arr[3]];
+                        break;
+                    default:
+                        break;
+                }
+            }
+            function fullscreenBack() {
+                for (let i = 0;  i<img_full_arr.length; i++) {
+                if (img_full_arr[i] == 0) {
+                    img_full_arr[i] = 7;
+                } else {
+                    img_full_arr[i]--;
+                }
+            }
+            document.getElementById("fullscreen_img").src = file_full_arr[img_full_arr[fullscreen_counter]];
+            document.getElementById('work_title').innerText = file_desc_arr[img_full_arr[fullscreen_counter]];
+            };
+            function fullscreenForward() {
+                for (let i = 0;  i<img_full_arr.length; i++) {
+                if (img_full_arr[i] == 7) {
+                    img_full_arr[i] = 0;
+                } else {
+                    img_full_arr[i]++;
+                }
+            }
+            document.getElementById("fullscreen_img").src = file_full_arr[img_full_arr[fullscreen_counter]];
+            document.getElementById('work_title').innerText = file_desc_arr[img_full_arr[fullscreen_counter]];
+            }
+    </script>
+</body>
+
+</html>
