@@ -70,6 +70,10 @@ button{
     .modal-body{
         display: block;
     }
+    #authors{
+        font-size: smaller;
+        padding-top: 5px;
+    }
 }
 #sidebar{
     background-color: #912F40;
